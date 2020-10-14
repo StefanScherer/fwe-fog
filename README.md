@@ -16,13 +16,21 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - [FOG-Server installieren](https://schulnetz.alp.dillingen.de/materialien/Fog.pdf)
 - Git Repo für die Automatisierung
   - Repo clonen
-    `git clone git@github.com:StefanScherer/fwe-fog`
+    ```
+    git clone git@github.com:StefanScherer/fwe-fog
+    ```
   - Repo ins Apache-Verzeichnis verschieben
-    `sudo mv fwe-fog /var/www/html`
+    ```
+    sudo mv fwe-fog /var/www/html
+    ```
   - Repo aktualisieren
-    `cd /var/www/html && git pull`
+    ```
+    cd /var/www/html && git pull
+    ```
   - Windows-Passwörter anpassen
-    `vi /var/www/html/fwe-fog/conf/unattend.xml`
+    ```
+    vi /var/www/html/fwe-fog/conf/unattend.xml
+    ```
 
 ## Ablauf
 
@@ -103,6 +111,9 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - In FOG das Image "win10-v2004-clean" verwenden
 - Da ist noch der Benutzer "admin" drauf und die Lizenz vom ersten Notebook.
 - Hier könnte man Windows Updates neu aufspielen und ggf. ein neues Image speichern.
-- PowerShell Terminal im Adminmodus öffnen
+- Ein CMD Terminal im Adminmodus öffnen (WIN + R dann `cmd.exe`)
 - Danach dann das Script zum Installieren der Software aufrufen
-  `iwr -useb http://192.168.4.2/fwe-fog/install.ps1 | iex`
+  ```
+  curl.exe -o install.bat http://192.168.4.2/fwe-fog/install.bat
+  install.bat
+  ```
