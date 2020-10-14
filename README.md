@@ -8,7 +8,9 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - Zurücksetzen der Notebooks nach Rückgabe
 - Aktualisierung des Master-Images mit neuen Windows-Updates oder neuer Software
 
-## FOG-Server vorbereiten
+## Teil 1 - Vorbereitungen
+
+### FOG-Server vorbereiten
 
 - Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
 - Linux Laptop mit Ubuntu und ausreichend Plattenplatz (500 GB)
@@ -57,28 +59,19 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
   - Windows-Passwörter anpassen
     `vi /var/www/html/fwe-fog/conf/unattend.xml`
 
-## Ablauf
-
-- FOG-Server per LAN und Switch mit einem anderen Laptop verbinden, WLAN kann aus bleiben, es ist kein Internetzugriff notwendig
-- FOG-Server booten
-- FOG-Server verteilt IP-Adresse an die HP Notebooks
-- Auf dem Linux-Laptop http://localhost/fog/ öffnen
-- HP Notebooks imagen
-- FOG-Server herunterfahren
-
-## HP ProBook 455 G7 vorbereiten
+### HP ProBook 455 G7 vorbereiten
 
 - Schnellstart (Fast boot) abschalten
   - Systemsteuerung -> Hardware und Sound -> Energieoptionen
   - Verhalten des Netzschalters
   - Schnellstart deaktivieren
-  - das macht das Installationsscript mittlerweile automatisch.
+  - Siehe [`scripts/disable-fastboot.ps1`](scripts/disable-fastboot.ps1)
 - BIOS mit F10
   - Secure Boot abschalten (Legacy boot enabled)
   - Wake on LAN aktivieren
-  - eventuell hiermit? http://www.systanddeploy.com/2019/03/list-and-change-bios-settings-with.html
+  - Für HP Notebooks siehe [`scripts/set-bios.ps1`](scripts/set-bios.ps1)
 
-### erster Boot
+#### erster Boot
 
 - Ermittlung einiger wichtiger Angaben jedes einzelnen Rechners
 - PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
@@ -90,58 +83,118 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - Seriennummer auslesen
   - `wmic bios get serialnumber`
 
-## Windows Image
+## Teil 2 - FOG benutzen
 
-- in den Audit Mode wechseln
-  - `C:\Windows\system32\sysprep\sysprep.exe`
+- FOG-Server per LAN und Switch mit einem anderen Laptop verbinden, WLAN kann aus bleiben, es ist kein Internetzugriff notwendig
+- FOG-Server booten
+- FOG-Server verteilt IP-Adresse an die HP Notebooks
+- Auf dem Linux-Laptop http://localhost/fog/ öffnen
+- HP Notebooks imagen
+- FOG-Server herunterfahren
 
-### Softwarepakete
+### Einen neuen Rechner in die Liste aufnehmen
 
-- Powershell Set Execution Policy
-  - `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
-- Chocolatey
-  - `iwr -useb https://chocolatey.org | iex`
-- Libre Office
-- Firefox
-- 7 Zip
-- Geogebra
-- Zoom
-- Adobe Reader
+- Ins BIOS mit F12 zum Netboot
+- "Perform Full Host Registration and Inventory" auwählen
+- Windows Product-Key gleich mit aufnehmen
 
-### Windows 10 aufräumen
+### Ein Image auf ein Laptop spielen
 
-- Debloat Windows Scripte ausführen
-- Windows Product-Key entfernen
-  - `slmgr.vbs /upk`
-- Benutzer "admin" entfernen
-- unattend.xml einspielen
-
-## FOG benutzen
+- In FOG das Image dem Rechner zuweisen
+- Rechner am einfachsten Herunterfahren, FOG weckt den Rechner automatisch auf.
+- In FOG beim Rechner den Task "Deploy" starten
 
 ### Ein Image vom Laptop sichern
 
 - In FOG ein neues Image erzeugen
 - Ins BIOS mit F12 zum Netboot
-- "Perform Full Host Registration and Inventory"
+- "Perform Full Host Registration and Inventory" auwählen
 - Windows Product-Key gleich mit aufnehmen
 - Das neue Image dem Rechner zuweisen
+- Rechner am einfachsten Herunterfahren, FOG weckt den Rechner automatisch auf.
 - In FOG den Task "Capture" starten
-- Rechner in Netboot bringen
 
-### Ein Image auf ein Laptop spielen
+### erstes Windows Image vorbereiten
 
-- In FOG das Image dem Rechner zuweisen
-- In FOG beim Rechner den Task "Deploy" starten
-- Rechner in Netboot bringen
+- Den Rechner einschalten und alle Windows Updates einspielen.
+- In den Audit Mode wechseln
+  - `C:\Windows\system32\sysprep\sysprep.exe /audit /shutdown`
+- Rechner wieder einschalten, ein Reboot beim vorherigen Befehl hat nicht funktioniert, daher der Shutdown und neuer Boot.
+- Von diesem Stand ein Image in FOG erstellen, dann ist man bei der Software später noch flexibler.
+- In FOG ein neues Image erzeugen, etwa `win10-v20h2-audit`
+- Ins BIOS mit F12 zum Netboot
+- "Perform Full Host Registration and Inventory" auswählen
+- Windows Product-Key gleich mit aufnehmen
+- Das neue Image dem Rechner zuweisen
+- Rechner am einfachsten Herunterfahren, FOG weckt den Rechner automatisch auf.
+- In FOG den Task "Capture" starten
+- Ab jetzt hat man ein neues Image im Audit Mode, um immer wieder von hier aus Images mit der gewünschten Software zu bauen.
 
 ### Ein Image aktualisieren
 
-- In FOG das Image "win10-v2004-clean" verwenden
-- Da ist noch der Benutzer "admin" drauf und die Lizenz vom ersten Notebook.
-- Hier könnte man Windows Updates neu aufspielen und ggf. ein neues Image speichern.
+- In FOG das Image `win10-v2004-audit` verwenden
+- Wenn größere Windows Updates anstanden, möglichst wieder ein neues Image in FOG speichern, ansonsten weiter zur Installation der Software.
 - Ein CMD Terminal im Adminmodus öffnen (WIN + R dann `cmd.exe`)
 - Danach dann das Script zum Installieren der Software aufrufen
   ```
   curl.exe -o install.bat http://192.168.4.2/fwe-fog/install.bat
   install.bat
   ```
+- Am Ende noch das Sysprep-Fenster nach vorne holen
+  1. Out-of-Box-Experience (OOBE) für System aktivieren
+  2. Verallgemeinern auswählen
+  3. Option für Herunterfahren: Herunterfahren auswählen
+  4. OK anklicken
+- Der Rechner fährt herunter
+- In FOG ein neues Image erzeugen, etwa `win10-v2004-mit-software-prep`
+- Das neue Image dem Rechner zuweisen
+- In FOG den Task "Capture" starten
+
+## Teil 3 - Beschreibung der Automatisierung
+
+Die Software und einige Einstellungen werden möglichst automatisch vorgenommen. Wie oben bereits gezeigt wurde, wird ein Script `install.bat` vom FOG-Server heruntergeladen, das dann noch weitere Scripte nachlädt.
+
+In einem leeren Notebook, das gerade die aktuellen Windows Updates erhalten hat oder eines der `*-audit` Images zurückgespielt bekommen hat, wird das Script gestartet
+
+Der bisherige Benutzer "admin" muss derzeit manuell entfernt werden.
+- Eine CMD-Shell als Administrator öffnen.
+   ```
+   net user admin /DELETE
+   ```
+- Dann den Windows Explorer öffnen und das Verzeichnis C:\Users\admin komplett löschen.
+
+Der Rechner befindet sich ja bereits im Audit Modus. Nun eine CMD Shell starten (WIN + R, dann `cmd` eingeben und RETURN).
+
+```
+curl.exe -o install.bat http://192.168.4.2/fwe-fog/install.bat
+install.bat
+```
+
+### PowerShell Scripte erlauben
+
+Das Script `install.bat` setzt erst einmal das Recht, weitere PowerShell-Scripte auszuführen.
+
+### Install.ps1
+
+Dann wird das Script `install.ps1` nachgeladen oder man kann es entsprechend direkt herunterladen und starten.
+
+Dieses Script nimmt nun mehrere Änderungen vor, die in jeweils eigenen Scripten vermerkt sind:
+
+- Fastboot deaktivieren in der Windows-Registry
+  Script [`scripts/disable-fastboot.ps1`](scripts/disable-fastboot.ps1)
+- BIOS Einstellungen vornehmen. Hilft nur für den aktuellen Rechner udn wird nicht ins Image übernommen.
+  Script [`scripts/set-bios.ps1`](scripts/set-bios.ps1)
+- Installation des Chocolatey Paketmanagers
+  Script [`scripts/install-chocolatey.ps1`](scripts/install-chocolatey.ps1)
+- Installation der gewünschten Software. Die Liste kann in diesem Script entsprechend erweitert oder verändert werden. Eine Suche auf [chocolatey.org](https://chocolatey.org) hilft, um den Paketnamen einer Software zu finden.
+  Script [`scripts/install-software.ps1`](scripts/install-software.ps1)
+- Entfernen einiger Apps, die den Sysprep verhindern
+  Script [`scripts/remove-default-apps.ps1`](scripts/remove-default-apps.ps1)
+- Entfernen des Windows Produktschlüssels
+  Script [`scripts/remove-productkey.ps1`](scripts/remove-productkey.ps1)
+- Installation der automatischen Vorbereitung mit einem Admin-Account und einem Standard-Account. Die Namen der Accounts und die Passwörter können in der Datei [`conf/unattend.xml`](conf/unattend.xml) vorgenommen werden, lokal auf dem FOG-Server.
+  Script [`scripts/install-unattend.ps1`](scripts/install-unattend.ps1)
+- Löschen einiger Cache-Verzeichnisse
+  Script [`scripts/cleanup.ps1`](scripts/cleanup.ps1)
+- Aufruf von Sysprep
+  Script [`scripts/sysprep-generalize.ps1`](scripts/sysprep-generalize.ps1)
