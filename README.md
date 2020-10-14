@@ -107,7 +107,7 @@ Die Anleitung ["Klonen von Windows mit dem FOG-Server"](https://schulnetz.alp.di
 ### Einen neuen Rechner in die Liste aufnehmen
 
 - Ins BIOS mit F12 zum Netboot
-- "Perform Full Host Registration and Inventory" auwählen
+- "Perform Full Host Registration and Inventory" auswählen
 - Windows Product-Key gleich mit aufnehmen
 
 ### Ein Image auf ein Laptop spielen
@@ -194,7 +194,7 @@ Dieses Script nimmt nun mehrere Änderungen vor, die in jeweils eigenen Scripten
 
 - Fastboot deaktivieren in der Windows-Registry  
   Script [`scripts/disable-fastboot.ps1`](scripts/disable-fastboot.ps1)
-- BIOS Einstellungen vornehmen. Hilft nur für den aktuellen Rechner udn wird nicht ins Image übernommen.  
+- BIOS Einstellungen vornehmen. Hilft nur für den aktuellen Rechner und wird nicht ins Image übernommen.  
   Script [`scripts/set-bios.ps1`](scripts/set-bios.ps1)
 - Installation des Chocolatey Paketmanagers  
   Script [`scripts/install-chocolatey.ps1`](scripts/install-chocolatey.ps1)
