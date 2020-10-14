@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+    <settings pass="oobeSystem">
+        <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <InputLocale>de-de</InputLocale>
+            <SystemLocale>de-de</SystemLocale>
+            <UILanguage>de-de</UILanguage>
+            <UILanguageFallback>de-de</UILanguageFallback>
+            <UserLocale>de-de</UserLocale>
+        </component>
+        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <OOBE>
+                <HideEULAPage>true</HideEULAPage>
+                <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+                <NetworkLocation>Work</NetworkLocation>
+                <ProtectYourPC>1</ProtectYourPC>
+            </OOBE>
+            <UserAccounts>
+                <LocalAccounts>
+                    <LocalAccount wcm:action="add">
+                        <Password>
+                            <Value>adminPassw0rd!</Value>
+                            <PlainText>true</PlainText>
+                        </Password>
+                        <Description />
+                        <DisplayName />
+                        <Group>Administrators</Group>
+                        <Name>Admin</Name>
+                    </LocalAccount>
+                    <LocalAccount wcm:action="add">
+                        <Password>
+                            <Value>standardPassw0rd!</Value>
+                            <PlainText>true</PlainText>
+                        </Password>
+                        <Description />
+                        <DisplayName />
+                        <Group>Users</Group>
+                        <Name>Standard</Name>
+                    </LocalAccount>
+                </LocalAccounts>
+            </UserAccounts>
+            <TimeZone>W. Europe Standard Time</TimeZone>
+        </component>
+    </settings>
+    <settings pass="generalize">
+        <component name="Microsoft-Windows-PnpSysprep" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <DoNotCleanUpNonPresentDevices>true</DoNotCleanUpNonPresentDevices>
+            <PersistAllDeviceInstalls>true</PersistAllDeviceInstalls>
+        </component>
+    </settings>
+    <settings pass="specialize">
+        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <CopyProfile>true</CopyProfile>
+        </component>
+    </settings>
+</unattend>
