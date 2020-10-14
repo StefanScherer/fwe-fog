@@ -74,6 +74,6 @@ Run("remove-default-apps.ps1") # erst beim zweiten Mal wird alles entfernt
 
 Run("remove-productkey.ps1")
 
-Run("cleanup.ps1")
 Run("install-unattend.ps1")
+Run("cleanup.ps1")
 Run("sysprep-generalize.ps1")

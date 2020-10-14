@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'SilentlyContinue'
+
 net stop COMSysApp
 taskkill /F /IM dllhost.exe
 taskkill /F /IM taskhost.exe
