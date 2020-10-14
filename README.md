@@ -56,6 +56,8 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 
 ### erster Boot
 
+- Ermittlung einiger wichtiger Angaben jedes einzelnen Rechners
+- PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
 - Windows-Product-Key auslesen
   - `Get-CimInstance -Class SoftwareLicensingService`
 - MAC-Adressen auslesen
