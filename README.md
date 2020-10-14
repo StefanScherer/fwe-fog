@@ -10,6 +10,7 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 
 ## FOG-Server vorbereiten
 
+- Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
 - Linux Laptop mit Ubuntu
 - [statische IP Adresse am LAN-Port](https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu)
 - [DHCP-Server](https://www.techrepublic.com/article/how-to-setup-a-dhcp-server-with-ubuntu-server-18-04/) - kann aber über die FOG-Installation gemacht werden.
@@ -55,8 +56,11 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 
 ### erster Boot
 
+- Ermittlung einiger wichtiger Angaben jedes einzelnen Rechners
+- PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
 - Windows-Product-Key auslesen
   - `Get-CimInstance -Class SoftwareLicensingService`
+  - unter `OA3xOriginalProductKey` steht der Key in der Form `XXXXX-XXXXX-XXXXX-XXXXX-XXXXX`
 - MAC-Adressen auslesen
   - `Get-WmiObject win32_networkadapterconfiguration | select description, macaddress`
 - Seriennummer auslesen
