@@ -13,25 +13,35 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
 - Linux Laptop mit Ubuntu
 - [statische IP Adresse am LAN-Port](https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu)
-- [DHCP-Server](https://www.techrepublic.com/article/how-to-setup-a-dhcp-server-with-ubuntu-server-18-04/) - kann aber über die FOG-Installation gemacht werden.
+  - [Beispielkonfiguration](server/etc/netplan/00-installer-config.yaml) mit `eno1` als Netzwerkkarte und IP-Adresse `192.168.4.2`
+  - `sudo vi /etc/netplan/00-installer-config.yaml`
+  - `sudo netplan apply`
+
+- [DHCP-Server](https://www.techrepublic.com/article/how-to-setup-a-dhcp-server-with-ubuntu-server-18-04/) 
+  - kann direkt über die FOG-Installation gemacht werden.
+  - [Beispielkonfiguration](server/etc/dhcp/dhcpd.conf) mit DHCP-Bereich `192.168.4.10...254` und `192.168.4.2` als FOG-Server
 - [FOG-Server installieren](https://schulnetz.alp.dillingen.de/materialien/Fog.pdf)
+  - `sudo apt-get update`
+  - `sudo apt-get upgrade`
+  - `cd`
+  - `git clone https://github.com/FOGProject/fogproject.git`
+  - `cd ~/fogproject/bin`
+  - Aktuelle Version von FOG auswählen
+    `git checkout 1.5.9`
+  - Installationsscript verwenden
+    `sudo ./installfog.sh`
+  - Es werden einige Dinge abgefragt
+  - URL http://192.168.4.2/fog öffnen und die Datenbank initialisieren
+
 - Git Repo für die Automatisierung
   - Repo clonen
-    ```
-    git clone git@github.com:StefanScherer/fwe-fog
-    ```
+    `git clone git@github.com:StefanScherer/fwe-fog`
   - Repo ins Apache-Verzeichnis verschieben
-    ```
-    sudo mv fwe-fog /var/www/html
-    ```
+    `sudo mv fwe-fog /var/www/html`
   - Repo aktualisieren
-    ```
-    cd /var/www/html && git pull
-    ```
+    `cd /var/www/html && git pull`
   - Windows-Passwörter anpassen
-    ```
-    vi /var/www/html/fwe-fog/conf/unattend.xml
-    ```
+    `vi /var/www/html/fwe-fog/conf/unattend.xml`
 
 ## Ablauf
 
