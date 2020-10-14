@@ -60,6 +60,7 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
 - Windows-Product-Key auslesen
   - `Get-CimInstance -Class SoftwareLicensingService`
+  - unter `OA3xOriginalProductKey` steht der Key in der Form `XXXXX-XXXXX-XXXXX-XXXXX-XXXXX`
 - MAC-Adressen auslesen
   - `Get-WmiObject win32_networkadapterconfiguration | select description, macaddress`
 - Seriennummer auslesen
