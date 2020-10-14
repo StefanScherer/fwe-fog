@@ -57,6 +57,7 @@ Function Run($script) {
 }
 
 Run("disable-fastboot.ps1")
+Run("set-bios.ps1")
 
 if ($env:USERNAME -ne "Administrator") {
     Write-Output "Switching to Audit Mode first ..."
