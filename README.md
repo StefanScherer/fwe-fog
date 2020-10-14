@@ -8,6 +8,16 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - Zurücksetzen der Notebooks nach Rückgabe
 - Aktualisierung des Master-Images mit neuen Windows-Updates oder neuer Software
 
+## Aufbau
+
+Es wird in einem autarken kleinen Netzwerk gearbeitet, wenn die Rechner ein neues Image erhalten sollen.
+
+![Autarkes Netzwerk 192.168.4.x mit FOG-Server](images/network.png)
+
+Internetzugriff ist dann nur notwendig, wenn ein neues Image erstellt wird und zuvor die Windows-Updates und die Software installiert werden soll.
+
+Der FOG-Server dient auch als DHCP-Server, daher wird nur ein einfacher Switch und Patchkabel zwischen den Rechnern benötigt.
+
 ## Teil 1 - Vorbereitungen
 
 ### FOG-Server vorbereiten
