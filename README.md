@@ -11,7 +11,8 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 ## FOG-Server vorbereiten
 
 - Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
-- Linux Laptop mit Ubuntu
+- Linux Laptop mit Ubuntu und ausreichend Plattenplatz (500 GB)
+
 - [statische IP Adresse am LAN-Port](https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu)
   - [Beispielkonfiguration](server/etc/netplan/00-installer-config.yaml) mit `eno1` als Netzwerkkarte und IP-Adresse `192.168.4.2`
   - `sudo vi /etc/netplan/00-installer-config.yaml`
@@ -20,6 +21,7 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 - [DHCP-Server](https://www.techrepublic.com/article/how-to-setup-a-dhcp-server-with-ubuntu-server-18-04/) 
   - kann direkt über die FOG-Installation gemacht werden.
   - [Beispielkonfiguration](server/etc/dhcp/dhcpd.conf) mit DHCP-Bereich `192.168.4.10...254` und `192.168.4.2` als FOG-Server
+
 - [FOG-Server installieren](https://schulnetz.alp.dillingen.de/materialien/Fog.pdf)
   - `sudo apt-get update`
   - `sudo apt-get upgrade`
@@ -30,7 +32,19 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
     `git checkout 1.5.9`
   - Installationsscript verwenden
     `sudo ./installfog.sh`
-  - Es werden einige Dinge abgefragt
+  - Es werden einige Dinge abgefragt, hier sind die Antworten
+    * Here are the settings FOG will use:
+    * Base Linux: Debian
+    * Detected Linux Distribution: Ubuntu
+    * Interface: eno1
+    * Server IP Address: 192.168.4.2
+    * Server Subnet Mask: 255.255.255.0
+    * Server Hostname: fogserver
+    * Installation Type: Normal Server
+    * Internationalization: 0
+    * Image Storage Location: /images
+    * Using FOG DHCP: Yes
+    * DHCP router Address: 192.168.4.1
   - URL http://192.168.4.2/fog öffnen und die Datenbank initialisieren
 
 - Git Repo für die Automatisierung
