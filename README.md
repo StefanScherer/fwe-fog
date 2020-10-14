@@ -180,21 +180,21 @@ Dann wird das Script `install.ps1` nachgeladen oder man kann es entsprechend dir
 
 Dieses Script nimmt nun mehrere Änderungen vor, die in jeweils eigenen Scripten vermerkt sind:
 
-- Fastboot deaktivieren in der Windows-Registry
+- Fastboot deaktivieren in der Windows-Registry  
   Script [`scripts/disable-fastboot.ps1`](scripts/disable-fastboot.ps1)
-- BIOS Einstellungen vornehmen. Hilft nur für den aktuellen Rechner udn wird nicht ins Image übernommen.
+- BIOS Einstellungen vornehmen. Hilft nur für den aktuellen Rechner udn wird nicht ins Image übernommen.  
   Script [`scripts/set-bios.ps1`](scripts/set-bios.ps1)
-- Installation des Chocolatey Paketmanagers
+- Installation des Chocolatey Paketmanagers  
   Script [`scripts/install-chocolatey.ps1`](scripts/install-chocolatey.ps1)
-- Installation der gewünschten Software. Die Liste kann in diesem Script entsprechend erweitert oder verändert werden. Eine Suche auf [chocolatey.org](https://chocolatey.org) hilft, um den Paketnamen einer Software zu finden.
+- Installation der gewünschten Software. Die Liste kann in diesem Script entsprechend erweitert oder verändert werden. Eine Suche auf [chocolatey.org](https://chocolatey.org) hilft, um den Paketnamen einer Software zu finden.  
   Script [`scripts/install-software.ps1`](scripts/install-software.ps1)
-- Entfernen einiger Apps, die den Sysprep verhindern
+- Entfernen einiger Apps, die den Sysprep verhindern  
   Script [`scripts/remove-default-apps.ps1`](scripts/remove-default-apps.ps1)
-- Entfernen des Windows Produktschlüssels
+- Entfernen des Windows Produktschlüssels  
   Script [`scripts/remove-productkey.ps1`](scripts/remove-productkey.ps1)
-- Installation der automatischen Vorbereitung mit einem Admin-Account und einem Standard-Account. Die Namen der Accounts und die Passwörter können in der Datei [`conf/unattend.xml`](conf/unattend.xml) vorgenommen werden, lokal auf dem FOG-Server.
+- Installation der automatischen Vorbereitung mit einem Admin-Account und einem Standard-Account. Die Namen der Accounts und die Passwörter können in der Datei [`conf/unattend.xml`](conf/unattend.xml) vorgenommen werden, lokal auf dem FOG-Server.  
   Script [`scripts/install-unattend.ps1`](scripts/install-unattend.ps1)
-- Löschen einiger Cache-Verzeichnisse
+- Löschen einiger Cache-Verzeichnisse  
   Script [`scripts/cleanup.ps1`](scripts/cleanup.ps1)
-- Aufruf von Sysprep
+- Aufruf von Sysprep  
   Script [`scripts/sysprep-generalize.ps1`](scripts/sysprep-generalize.ps1)
