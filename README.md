@@ -14,11 +14,13 @@ Es wird in einem autarken kleinen Netzwerk gearbeitet, wenn die Rechner ein neue
 
 ![Autarkes Netzwerk 192.168.4.x mit FOG-Server](images/network.png)
 
-Internetzugriff ist dann nur notwendig, wenn ein neues Image erstellt wird und zuvor die Windows-Updates und die Software installiert werden soll.
+Internetzugriff ist dann nur notwendig, wenn ein neues Image erstellt wird und etwa die Windows-Updates und die Software installiert werden sollen. Man kann zum Beispiel einen der Windows Notebooks zuhause oder im WLAN vorbereiten und dann wieder per Kabel anschließen, um das Image in FOG einzuspielen.
 
 Der FOG-Server dient auch als DHCP-Server, daher wird nur ein einfacher Switch und Patchkabel zwischen den Rechnern benötigt.
 
 ## Teil 1 - Vorbereitungen
+
+Die Anleitung ["Klonen von Windows mit dem FOG-Server"](https://schulnetz.alp.dillingen.de/materialien/Fog.pdf) der Akademie Dillingen - SCHULNETZ war bei der Vorbereitung sehr hilfreich, ebenso weitere [Materialien](https://schulnetz.alp.dillingen.de/materialien.html).
 
 ### FOG-Server vorbereiten
 
