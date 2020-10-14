@@ -10,6 +10,7 @@ Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
 
 ## FOG-Server vorbereiten
 
+- Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
 - Linux Laptop mit Ubuntu
 - [statische IP Adresse am LAN-Port](https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu)
 - [DHCP-Server](https://www.techrepublic.com/article/how-to-setup-a-dhcp-server-with-ubuntu-server-18-04/) - kann aber über die FOG-Installation gemacht werden.
