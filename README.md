@@ -18,13 +18,15 @@ Ein Internetzugriff ist nur notwendig, wenn ein neues Image erstellt wird und et
 
 Der FOG-Server dient auch als DHCP-Server, daher wird nur ein einfacher Switch und Patchkabel zwischen den Rechnern benötigt.
 
+Die Anleitung ["Klonen von Windows mit dem FOG-Server"](https://schulnetz.alp.dillingen.de/materialien/Fog.pdf) der Akademie Dillingen - SCHULNETZ war beim Aufbau dieses Projektes sehr hilfreich, ebenso die weiteren [Materialien](https://schulnetz.alp.dillingen.de/materialien.html).
+
 ## FOG benutzen
 
-Der FOG-Server (Linux Notebook) speichert verschiedene Disk-Images und verwaltet die HP-Notebooks inklusive der Windows Produkt Keys.
+Der FOG-Server (Linux-Notebook) speichert verschiedene Disk-Images und verwaltet die HP-Notebooks inklusive der Windows Produkt Keys.
 
-Der FOG-Server bietet eine Weboberfläche, in der die Rechner und die Images verwaltet werden können.
+Der FOG-Server bietet eine Web-Oberfläche, in der die Rechner und die Images verwaltet werden können.
 
-Auf dem Linux Notebook, oder von einem anderen Rechner im eigenen kleinen Netzwerk kann man im Browser folgende URL öffnen:
+Auf dem Linux-Notebook, oder von einem anderen Rechner im eigenen kleinen Netzwerk kann man im Browser folgende URL öffnen:
 - http://192.168.4.2/fog/
 
 Der Login erfolgt mit Benutzer `fog` und dem bekannten Passwort.
@@ -138,7 +140,7 @@ Ebenso finden sich hier noch Details, wie die HP-Notebooks vorbereitet werdne m�
 ### FOG-Server vorbereiten
 
 - Ein [FOG-Server](https://fogproject.org/) dient zur Ablage der Images und Verwaltung der Rechner
-- Linux Notebook mit Ubuntu und ausreichend Plattenplatz (500 GB)
+- Linux-Notebook mit Ubuntu und ausreichend Plattenplatz (500 GB)
 
 - [statische IP Adresse am LAN-Port](https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu)
   - [Beispielkonfiguration](server/etc/netplan/00-installer-config.yaml) mit `eno1` als Netzwerkkarte und IP-Adresse `192.168.4.2`
