@@ -1,5 +1,8 @@
 # FOG-Server an der FWE
 
+Die aktuelle Version dieser Anleitung kann jederzeit unter folgender URL abgerufen werden:
+- https://github.com/StefanScherer/fwe-fog/blob/main/README.md
+
 ## Ziele
 
 Ziel dieses Projekts ist es, Leihnotebooks für Schüler*innen vorzubereiten.
