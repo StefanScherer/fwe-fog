@@ -1,17 +1,20 @@
+$ErrorActionPreference = 'SilentlyContinue'
+
 Write-Output "Der sysprep läuft in 15 Sekunden. Jetzt ist noch Zeit zum Abbrechen !!!"
 Start-Sleep 15
 
-C:\Windows\system32\sysprep\sysprep.exe /generalize /shutdown /oobe
+Stop-Process -Name sysprep
+Start-Sleep 1
 
-Write-Output "Falls es nicht klappt, dann bitte das bereits geöffnete"
-Write-Output "Systemvorbereitungsprogramm nach vorne holen und folgende"
-Write-Output "Einstellungen machen:"
-Write-Output ""
-Write-Output "1. Out-of-Box-Experience (OOBE) für System aktivieren"
-Write-Output "2. Verallgemeinern auswählen"
-Write-Output "3. Option für Herunterfahren: Herunterfahren auswählen"
-Write-Output "4. OK anklicken"
-Write-Output ""
-Write-Output "Danach fährt der Rechner herunter und ein neues Image"
-Write-Output "kann in FOG erzeugt werden und von diesem Rechner mit"
-Write-Output "Wake-on-LAN hochgeladen werden."
+Start-Process -FilePath C:\Windows\system32\sysprep\sysprep.exe -ArgumentList "/generalize /quit /oobe" -Wait
+
+# from https://docs.microsoft.com/de-de/windows-hardware/manufacture/desktop/customize-the-default-user-profile-by-using-copyprofile
+
+New-PSDrive HKU Registry HKEY_USERS
+Remove-Item -Recurse HKU:\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\*
+Remove-ItemProperty HKU:\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\FileAssociations\ProgIds -Name "_.html"
+Remove-ItemProperty HKU:\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\FileAssociations\ProgIds -Name "_.jpg"
+# Remove-Item -Recurse HKU:\.DEFAULT\Software\Microsoft\Windows\Shell\Associations\FileAssociationsUpdateVersion\*
+# Remove-Item -Recurse HKU:\.DEFAULT\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\*
+
+Stop-Computer -Force -Confirm
