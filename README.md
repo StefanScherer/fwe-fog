@@ -84,8 +84,8 @@ Dies dürfte der häufigste Anwendungsfall sein. Ein HP-Notebook muss mit einem 
   - Nun den Task starten mit den vorausgewählten Optionen  
     ![Start Deploy Task](images/fog-create-deploy-tasking.png)
 - Das HP-Notebook bootet nun automatisch vom Netzwerk und spielt das Disk-Image ein.
-- Anschließend bootet das HP-Notebook automatisch in Windows. Hier erfolgt ein einmaliger automatischer Login als Benutzer `admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal neu und es erscheint nur der Loginbildschirm.
-  - Damit ist der Rechner nun fertig für den Verleih vorbereitet, beim ersten Login als Benutzer `Standard` muss ein neues Kennwort vergeben werden. Dies sollte dann von der Schülerin bzw. dem Schüler durchgeführt werden.
+- Anschließend bootet das HP-Notebook automatisch in Windows. Hier erfolgt ein einmaliger automatischer Login als Benutzer `Admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal automatisch neu und es erscheint nur der Loginbildschirm.
+- Damit ist der Rechner nun fertig für den Verleih vorbereitet, beim ersten Login als Benutzer `Standard` muss ein neues Kennwort vergeben werden. Dies sollte dann von der Schülerin bzw. dem Schüler durchgeführt werden.
 - Das HP-Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen
 - Das HP-Notebook vom Netzwerk trennen
 - Den FOG-Server herunterfahren
