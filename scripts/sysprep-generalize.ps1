@@ -8,9 +8,9 @@ Start-Sleep 1
 
 # from https://docs.microsoft.com/de-de/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-copyprofile
 
-# Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\*
-# Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\FileAssociationsUpdateVersion\*
-# Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\*
+Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\*
+Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\FileAssociationsUpdateVersion\*
+Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\*
 
 Start-Process -FilePath C:\Windows\system32\sysprep\sysprep.exe -ArgumentList "/generalize /quit /oobe" -Wait
 
