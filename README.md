@@ -77,14 +77,16 @@ Dies dürfte der häufigste Anwendungsfall sein. Ein HP-Notebook muss mit einem 
     ![Select Host in FOG](images/fog-select-host.png)  
   - Eventuell das gewünschte Image auswählen, anschließend auf "Update" klicken
     ![Update Host Image](images/fog-change-host-image.png)    
-- Das HP-Notebook am einfachsten Herunterfahren, der FOG-Server weckt den Rechner automatisch auf und bootet ihm vom Netzwerk.
+- Das HP-Notebook am einfachsten Herunterfahren, der FOG-Server weckt den Rechner automatisch auf und bootet ihn vom Netzwerk.
 - In FOG beim Rechner den Task "Deploy" starten, das ist der **grüne Pfeil nach unten**. Nicht zu verwechseln mit dem orangefarbenen Pfeil, der sonst das Image am FOG-Server überschreiben würde.
   - Hierzu nochmal zurück in die Host-Liste gehen, um dann den Deploy-Task auswählen  
     ![Select Deploy Task](images/fog-deploy-task.png)
   - Nun den Task starten mit den vorausgewählten Optionen  
     ![Start Deploy Task](images/fog-create-deploy-tasking.png)
 - Das HP-Notebook bootet nun automatisch vom Netzwerk und spielt das Disk-Image ein.
-- Anschließend bootet das HP-Notebook automatisch in Windows und damit ist der Vorgang abgeschlossen.
+- Anschließend bootet das HP-Notebook automatisch in Windows. Hier erfolgt ein einmaliger automatischer Login als Benutzer `admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal neu und es erscheint nur der Loginbildschirm.
+  - Damit ist der Rechner nun fertig für den Verleih vorbereitet, beim ersten Login als Benutzer `Standard` muss ein neues Kennwort vergeben werden. Dies sollte dann von der Schülerin bzw. dem Schüler durchgeführt werden.
+- Das HP-Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen
 - Das HP-Notebook vom Netzwerk trennen
 - Den FOG-Server herunterfahren
 
