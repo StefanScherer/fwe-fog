@@ -195,11 +195,12 @@ Ebenso finden sich hier noch Details, wie die HP-Notebooks vorbereitet werdne m�
   - Systemsteuerung -> Hardware und Sound -> Energieoptionen
   - Verhalten des Netzschalters
   - Schnellstart deaktivieren
-  - Siehe [`scripts/disable-fastboot.ps1`](scripts/disable-fastboot.ps1)
+  - Siehe [`prepare/disable-fastboot.ps1`](prepare/disable-fastboot.ps1)
 - BIOS mit F10
   - Secure Boot abschalten (Legacy boot enabled)
   - Wake on LAN aktivieren
-  - Für HP-Notebooks siehe [`scripts/set-bios.ps1`](scripts/set-bios.ps1)
+  - Für HP-Notebooks siehe [`prepare/set-bios.ps1`](prepare/set-bios.ps1)
+- Der Ordner `prepare` sollte auf einen USB-Stick kopiert werden, um dann bei jedem neuen HP Notebook das Script `D:\prepare.bat` aufzurufen. Dieses ruft dann die beiden PowerShell-Scripte auf und bereitet das BIOS und den Fastboot vor.
 
 #### erster Boot
 
