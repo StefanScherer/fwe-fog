@@ -15,6 +15,29 @@
                 <NetworkLocation>Work</NetworkLocation>
                 <ProtectYourPC>1</ProtectYourPC>
             </OOBE>
+            <AutoLogon>
+                <Password>
+                    <Value>adminPassw0rd!</Value>
+                    <PlainText>true</PlainText>
+                </Password>
+                <Enabled>true</Enabled>
+                <LogonCount>1</LogonCount>
+                <Username>Admin</Username>
+            </AutoLogon>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>C:\Windows\system32\net.exe user "Standard" /logonpasswordchg:yes</CommandLine>
+                    <Description>Force Password Reset for Standard account</Description>
+                    <Order>1</Order>
+                    <RequiresUserInput>false</RequiresUserInput>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>C:\Windows\system32\shutdown.exe /s /t 30</CommandLine>
+                    <Description>Shutdown computer after 30 seconds</Description>
+                    <Order>2</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+            </FirstLogonCommands>
             <UserAccounts>
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
@@ -29,7 +52,7 @@
                     </LocalAccount>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <Value>standardPassw0rd!</Value>
+                            <Value />
                             <PlainText>true</PlainText>
                         </Password>
                         <Description />
