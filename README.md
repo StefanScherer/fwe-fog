@@ -63,7 +63,7 @@ Im weiteren folgen nun typische Anwendungsfälle, die Schritt für Schritt erkl�
 ![Perform Full Host Registration and Inventory](images/fog-perform-inventory.png)
 - Den Windows Product-Key könnte man gleich mit aufnehmen, ist aber nicht zwingend.  
 ![FOG Registration](images/fog-registration.png)
-- Es kann auch gleich ein Image ausgewählt und mit Deploy auf den Rechner gespielt werden, jedoch fehlen bei frischen Rechnern noch die BIOS-Einstellungen.
+- Es kann auch gleich ein Image ausgewählt und mit Deploy auf den Rechner gespielt werden, jedoch fehlen bei frischen Rechnern noch die BIOS-Einstellungen. Hierzu dann mit `?` in eine Auswahlmenü gehen. Achtung, englische Tastatur, das Fragezeichen ist mit SHIFT + MINUS zu erreichen.
 - Der Rechner ist nun in FOG registriert. Dort kann später noch das Image und ggf. der Windows Productkey eingetragen werden.  
 ![Registered Host in FOG](images/fog-registered.png)
 
@@ -88,10 +88,12 @@ Dies dürfte der häufigste Anwendungsfall sein. Ein HP-Notebook muss mit einem 
   - Nun den Task starten mit den vorausgewählten Optionen  
     ![Start Deploy Task](images/fog-create-deploy-tasking.png)
 - Das HP-Notebook bootet nun automatisch vom Netzwerk und spielt das Disk-Image ein.
-- Anschließend bootet das HP-Notebook automatisch in Windows. Hier erfolgt ein einmaliger automatischer Login als Benutzer `Admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal automatisch neu und es erscheint nur der Loginbildschirm.
+- Anschließend bootet das HP-Notebook automatisch in Windows.
+- **Ab jetzt kann man das HP-Notebook bereits vom Netzwerk trennen und das nächste anschließen. Damit spart vermutlich Zeit.**
+- Es erfolgt ein einmaliger automatischer Login als Benutzer `Admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal automatisch neu und es erscheint nur der Loginbildschirm.  
+![Automatischer Reboot](images/hp-auto-reboot.png)
 - Damit ist der Rechner nun fertig für den Verleih vorbereitet, beim ersten Login als Benutzer `Standard` muss ein neues Kennwort vergeben werden. Dies sollte dann von der Schülerin bzw. dem Schüler durchgeführt werden.
-- Das HP-Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen
-- Das HP-Notebook vom Netzwerk trennen
+- Das HP-Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen.
 - Den FOG-Server herunterfahren
 
 ### Ein Image vom Notebook sichern
