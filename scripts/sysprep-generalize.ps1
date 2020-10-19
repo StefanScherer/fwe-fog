@@ -12,6 +12,7 @@ Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Fi
 Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\FileAssociationsUpdateVersion\*
 Remove-Item -Recurse HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\*
 
+Write-Output "Der sysprep ist gestartet."
 Start-Process -FilePath C:\Windows\system32\sysprep\sysprep.exe -ArgumentList "/generalize /quit /oobe" -Wait
 
 # from https://docs.microsoft.com/de-de/windows-hardware/manufacture/desktop/customize-the-default-user-profile-by-using-copyprofile
