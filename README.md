@@ -57,11 +57,15 @@ Im weiteren folgen nun typische Anwendungsfälle, die Schritt für Schritt erkl�
 - HP-Notebook per Patchkabel an den Switch anschließen
 - HP-Notebook an die Stromversorgung anschließen
 - Am HP-Notebook in das BIOS gehen. Hierzu den Rechner einschalten und immer wieder die F12 Taste drücken. Nach einigen Sekunden erscheint die Auswahl zum Netboot IPv4. Dieses mit der RETURN Taste bestätigen.
-- Das Notebook bootet nun aus dem Netzwerk. Es erscheint ein Menü von FOG, das man sofort mit CURSOR DOWN anhalten sollte. Sonst bootet der Rechner nach 3 Sekunden automatisch wieder Windows.
-- "Perform Full Host Registration and Inventory" auswählen
-- Windows Product-Key gleich mit aufnehmen
+- Das Notebook bootet nun aus dem Netzwerk. Es erscheint ein Menü von FOG, das man sofort mit CURSOR DOWN anhalten sollte. Sonst bootet der Rechner nach 3 Sekunden automatisch wieder Windows.  
+![FOG Boot from hard disk 3 seconds countdown](images/fog-countdown.png)
+- "Perform Full Host Registration and Inventory" auswählen  
+![Perform Full Host Registration and Inventory](images/fog-perform-inventory.png)
+- Den Windows Product-Key könnte man gleich mit aufnehmen, ist aber nicht zwingend.  
+![FOG Registration](images/fog-registration.png)
 - Es kann auch gleich ein Image ausgewählt und mit Deploy auf den Rechner gespielt werden, jedoch fehlen bei frischen Rechnern noch die BIOS-Einstellungen.
-- Der Rechner ist nun in FOG registriert
+- Der Rechner ist nun in FOG registriert. Dort kann später noch das Image und ggf. der Windows Productkey eingetragen werden.  
+![Registered Host in FOG](images/fog-registered.png)
 
 ### Ein Image auf ein Notebook aufspielen
 
