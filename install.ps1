@@ -50,10 +50,15 @@ function Elevate-Privileges {
 }
 
 Function Run($script) {
-    Write-Output "Downloading $script"
-    curl.exe -o $env:TEMP\$script http://$fogServerIP/fwe-fog/scripts/$script
-    Write-Output "Running $script"
-    . $env:TEMP\$script
+    if (Test-Path .\scripts\$script) {
+        Write-Output "Running local $script"
+        . .\scripts\$script
+    } else {
+        Write-Output "Downloading $script"
+        curl.exe -o $env:TEMP\$script http://$fogServerIP/fwe-fog/scripts/$script
+        Write-Output "Running $script"
+        . $env:TEMP\$script
+    }
 }
 
 Run("disable-fastboot.ps1")
