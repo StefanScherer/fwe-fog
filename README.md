@@ -25,7 +25,7 @@ Die Anleitung ["Klonen von Windows mit dem FOG-Server"](https://schulnetz.alp.di
 
 ## FOG benutzen
 
-Der FOG-Server (Linux-Notebook) speichert verschiedene Disk-Images und verwaltet die HP-Notebooks inklusive der Windows Produkt Keys.
+Der FOG-Server (Linux-Notebook) speichert verschiedene Disk-Images und verwaltet die Notebooks.
 
 Der FOG-Server bietet eine Web-Oberfläche, in der die Rechner und die Images verwaltet werden können.
 
@@ -54,9 +54,9 @@ Im weiteren folgen nun typische Anwendungsfälle, die Schritt für Schritt erkl�
 
 - FOG-Server per Patchkabel an den Switch anschließen
 - FOG-Server hochfahren
-- HP-Notebook per Patchkabel an den Switch anschließen
-- HP-Notebook an die Stromversorgung anschließen
-- Am HP-Notebook in das BIOS gehen. Hierzu den Rechner einschalten und immer wieder die F12 Taste drücken. Nach einigen Sekunden erscheint die Auswahl zum Netboot IPv4. Dieses mit der RETURN Taste bestätigen.
+- Notebook per Patchkabel an den Switch anschließen
+- Notebook an die Stromversorgung anschließen
+- Am Notebook in das Bootmenü gehen. Hierzu den Rechner einschalten und immer wieder die F12 Taste drücken. Nach einigen Sekunden erscheint die Auswahl wie gebootet werden soll. Nun Netboot IPv4 auswählen. Dieses mit der RETURN Taste bestätigen.
 - Das Notebook bootet nun aus dem Netzwerk. Es erscheint ein Menü von FOG, das man sofort mit CURSOR DOWN anhalten sollte. Sonst bootet der Rechner nach 3 Sekunden automatisch wieder Windows.  
 ![FOG Boot from hard disk 3 seconds countdown](images/fog-countdown.png)
 - "Perform Full Host Registration and Inventory" auswählen  
@@ -69,42 +69,42 @@ Im weiteren folgen nun typische Anwendungsfälle, die Schritt für Schritt erkl�
 
 ### Ein Image auf ein Notebook aufspielen
 
-Dies dürfte der häufigste Anwendungsfall sein. Ein HP-Notebook muss mit einem vorgefertigten Image bespielt werden, etwa weil der ausgeliehene Rechner zurückgegeben wurde.
+Dies dürfte der häufigste Anwendungsfall sein. Ein HP- oder DELL-Notebook muss mit einem vorgefertigten Image bespielt werden, etwa weil der ausgeliehene Rechner zurückgegeben wurde.
 
 - FOG-Server per Patchkabel an den Switch anschließen
 - FOG-Server hochfahren
-- HP-Notebook per Patchkabel an den Switch anschließen
-- HP-Notebook an die Stromversorgung anschließen (Wake on LAN funktioniert nicht im Batteriebetrieb)
-- HP-Notebook herunterfahren, falls es eingeschaltet sein sollte
+- Notebook per Patchkabel an den Switch anschließen
+- Notebook an die Stromversorgung anschließen (Wake on LAN funktioniert nicht im Batteriebetrieb)
+- Notebook herunterfahren, falls es eingeschaltet sein sollte
 - In FOG das Image dem Rechner zuweisen
   - In der Host-Liste den Rechner auswählen  
     ![Select Host in FOG](images/fog-select-host.png)  
   - Eventuell das gewünschte Image auswählen, anschließend auf "Update" klicken
-    ![Update Host Image](images/fog-change-host-image.png)    
-- Das HP-Notebook am einfachsten Herunterfahren, der FOG-Server weckt den Rechner automatisch auf und bootet ihn vom Netzwerk.
+    ![Update Host Image](images/fog-change-host-image.png)
+- Das Notebook am einfachsten Herunterfahren, der FOG-Server weckt den Rechner automatisch auf und bootet ihn vom Netzwerk.
 - In FOG beim Rechner den Task "Deploy" starten, das ist der **grüne Pfeil nach unten**. Nicht zu verwechseln mit dem orangefarbenen Pfeil, der sonst das Image am FOG-Server überschreiben würde.
   - Hierzu nochmal zurück in die Host-Liste gehen, um dann den Deploy-Task auswählen  
     ![Select Deploy Task](images/fog-deploy-task.png)
   - Nun den Task starten mit den vorausgewählten Optionen  
     ![Start Deploy Task](images/fog-create-deploy-tasking.png)
-- Das HP-Notebook bootet nun automatisch vom Netzwerk und spielt das Disk-Image ein.
-- Anschließend bootet das HP-Notebook automatisch in Windows.
-- **Ab jetzt kann man das HP-Notebook bereits vom Netzwerk trennen und das nächste anschließen. Damit spart vermutlich Zeit.**
+- Das Notebook bootet nun automatisch vom Netzwerk und spielt das Disk-Image ein.
+- Anschließend bootet das Notebook automatisch in Windows.
+- **Ab jetzt kann man das Notebook bereits vom Netzwerk trennen und das nächste anschließen. Damit spart vermutlich Zeit.**
 - Es erfolgt ein einmaliger automatischer Login als Benutzer `Admin`, um die restliche Konfiguration durchzuführen. Danach startet der Rechner nochmal automatisch neu und es erscheint nur der Loginbildschirm.  
 ![Automatischer Reboot](images/hp-auto-reboot.png)
 - Damit ist der Rechner nun fertig für den Verleih vorbereitet, beim ersten Login als Benutzer `Standard` muss ein neues Kennwort vergeben werden. Dies sollte dann von der Schülerin bzw. dem Schüler durchgeführt werden.
-- Das HP-Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen.
+- Das Notebook herunterfahren, ohne sich vorher als Benutzer `Standard` einzuloggen.
 - Den FOG-Server herunterfahren
 
 ### Ein Image vom Notebook sichern
 
-Ganz zu Beginn wurden Disk-Images von einem HP-Notebook in FOG hochgeladen. Bei neuen Gerätetypen empfiehlt sich der gleiche Vorgang, um das Original-Image zu sichern.
+Ganz zu Beginn wurden Disk-Images von einem HP- oder DELL-Notebook in FOG hochgeladen. Bei neuen Gerätetypen empfiehlt sich der gleiche Vorgang, um das Original-Image zu sichern.
 
 - FOG-Server per Patchkabel an den Switch anschließen
 - FOG-Server hochfahren
-- HP-Notebook per Patchkabel an den Switch anschließen
-- HP-Notebook an die Stromversorgung anschließen (Wake on LAN funktioniert nicht im Batteriebetrieb)
-- HP-Notebook herunterfahren, falls es eingeschaltet sein sollte
+- Notebook per Patchkabel an den Switch anschließen
+- Notebook an die Stromversorgung anschließen (Wake on LAN funktioniert nicht im Batteriebetrieb)
+- Notebook herunterfahren, falls es eingeschaltet sein sollte
 - In FOG den Task "Capture" starten
 
 ### erstes Windows Image vorbereiten
@@ -125,7 +125,9 @@ Ganz zu Beginn wurden Disk-Images von einem HP-Notebook in FOG hochgeladen. Bei 
 
 ### Ein Image aktualisieren
 
-- In FOG das Image `win10-v2004-audit` verwenden
+- In FOG das folgende Image verwenden
+  - HP-Notebooks: `hp-win10-v2004-audit`
+  - DELL-Notebooks: `dell-win10-audit-2021-05-31`
 - Wenn größere Windows Updates anstanden, möglichst wieder ein neues Image in FOG speichern, ansonsten weiter zur Installation der Software.
 - Ein CMD Terminal im Adminmodus öffnen (WIN + R dann `cmd.exe`)
 - Danach dann das Script zum Installieren der Software aufrufen
@@ -139,14 +141,53 @@ Ganz zu Beginn wurden Disk-Images von einem HP-Notebook in FOG hochgeladen. Bei 
   3. Option für Herunterfahren: Herunterfahren auswählen
   4. OK anklicken
 - Der Rechner fährt herunter
-- In FOG ein neues Image erzeugen, etwa `win10-v2004-mit-software-prep`
+- In FOG ein neues Image erzeugen, etwa `dell-win10-v2004-2021-06-01`
 - Das neue Image dem Rechner zuweisen
 - In FOG den Task "Capture" starten
 
 ## Vorbereitungen
 
-Nun folgen die eher technischeren Details zum Aufbau und wie man den FOG-Server vorbereitet und installiert.
-Ebenso finden sich hier noch Details, wie die HP-Notebooks vorbereitet werdne müssen (BIOS-Einstellungen), damit sie sich automatisieren lassen.
+Nun folgen die eher technischeren Details, wie die HP-Notebooks vorbereitet werden müssen (BIOS-Einstellungen), damit sie sich automatisieren lassen.
+
+Ebenso finden sich hier noch Details zum Aufbau und wie man den FOG-Server vorbereitet und installiert. Am Ende werden die Automatiseriungs-Skripte kurz erläutert.
+
+### HP ProBook 455 G7 vorbereiten
+
+- HP: **BIOS mit F10**
+  - Secure Boot abschalten (Legacy boot enabled)
+  - Wake on LAN aktivieren
+  - Für HP-Notebooks siehe [`prepare/set-bios.ps1`](prepare/set-bios.ps1)
+- Schnellstart (Fast boot) abschalten
+  - Dieser Schritt ist nur nötig, wenn man ein Image von einem ganz neuen Notebook abziehen will. Das Image, das wir in FOG haben, enthält diese Änderung in Windows 10 bereits.
+  - Systemsteuerung -> Hardware und Sound -> Energieoptionen
+  - Verhalten des Netzschalters
+  - Schnellstart deaktivieren
+  - Siehe [`prepare/disable-fastboot.ps1`](prepare/disable-fastboot.ps1)
+- Der Ordner `prepare` sollte auf einen USB-Stick kopiert werden, um dann bei jedem neuen HP Notebook das Script `D:\prepare.bat` aufzurufen. Dieses ruft dann die beiden PowerShell-Scripte auf und bereitet das BIOS und den Fastboot vor.
+
+### DELL Latitude 3510 vorbereiten
+
+- DELL: **BIOS mit F2**
+  - Boot Configuration / Secure Boot abschalten (Legacy boot enabled)
+  - System Management / Wake on LAN aktivieren (LAN with PXE Boot)
+- Schnellstart (Fast boot) abschalten
+  - Dieser Schritt ist nur nötig, wenn man ein Image von einem ganz neuen Notebook abziehen will. Das Image, das wir in FOG haben, enthält diese Änderung in Windows 10 bereits.
+  - Systemsteuerung -> Hardware und Sound -> Energieoptionen
+  - Verhalten des Netzschalters
+  - Schnellstart deaktivieren
+  - Siehe [`prepare/disable-fastboot.ps1`](prepare/disable-fastboot.ps1)
+
+#### erster Boot
+
+- Ermittlung einiger wichtiger Angaben jedes einzelnen Rechners
+- PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
+- Windows-Product-Key auslesen
+  - `Get-CimInstance -Class SoftwareLicensingService`
+  - unter `OA3xOriginalProductKey` steht der Key in der Form `XXXXX-XXXXX-XXXXX-XXXXX-XXXXX`
+- MAC-Adressen auslesen
+  - `Get-WmiObject win32_networkadapterconfiguration | select description, macaddress`
+- Seriennummer auslesen
+  - `wmic bios get serialnumber`
 
 ### FOG-Server vorbereiten
 
@@ -196,31 +237,6 @@ Ebenso finden sich hier noch Details, wie die HP-Notebooks vorbereitet werdne m�
     `cd /var/www/html && git pull`
   - Windows-Passwörter anpassen
     `vi /var/www/html/fwe-fog/conf/unattend.xml`
-
-### HP ProBook 455 G7 vorbereiten
-
-- Schnellstart (Fast boot) abschalten
-  - Systemsteuerung -> Hardware und Sound -> Energieoptionen
-  - Verhalten des Netzschalters
-  - Schnellstart deaktivieren
-  - Siehe [`prepare/disable-fastboot.ps1`](prepare/disable-fastboot.ps1)
-- BIOS mit F10
-  - Secure Boot abschalten (Legacy boot enabled)
-  - Wake on LAN aktivieren
-  - Für HP-Notebooks siehe [`prepare/set-bios.ps1`](prepare/set-bios.ps1)
-- Der Ordner `prepare` sollte auf einen USB-Stick kopiert werden, um dann bei jedem neuen HP Notebook das Script `D:\prepare.bat` aufzurufen. Dieses ruft dann die beiden PowerShell-Scripte auf und bereitet das BIOS und den Fastboot vor.
-
-#### erster Boot
-
-- Ermittlung einiger wichtiger Angaben jedes einzelnen Rechners
-- PowerShell Terminal öffnen (WIN + R drücken, dann `powershell` eingeben und RETURN)
-- Windows-Product-Key auslesen
-  - `Get-CimInstance -Class SoftwareLicensingService`
-  - unter `OA3xOriginalProductKey` steht der Key in der Form `XXXXX-XXXXX-XXXXX-XXXXX-XXXXX`
-- MAC-Adressen auslesen
-  - `Get-WmiObject win32_networkadapterconfiguration | select description, macaddress`
-- Seriennummer auslesen
-  - `wmic bios get serialnumber`
 
 ## Beschreibung der Automatisierung
 
