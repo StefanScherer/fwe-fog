@@ -170,6 +170,8 @@ Ebenso finden sich hier noch Details zum Aufbau und wie man den FOG-Server vorbe
 - DELL: **BIOS mit F2**
   - Boot Configuration / Secure Boot abschalten (Legacy boot enabled)
   - System Management / Wake on LAN aktivieren (LAN with PXE Boot)
+  - Storage / SATA-Operation: AHCI
+  - Security / UEFI BOOT PATH Security: Always Except Internal HDD & PXE
 - Schnellstart (Fast boot) abschalten
   - Dieser Schritt ist nur nötig, wenn man ein Image von einem ganz neuen Notebook abziehen will. Das Image, das wir in FOG haben, enthält diese Änderung in Windows 10 bereits.
   - Systemsteuerung -> Hardware und Sound -> Energieoptionen
